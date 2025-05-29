@@ -5,11 +5,11 @@
 }
 
 .container {
-  background-color: salmon;
-  width: 60%;
+  /* background-color: salmon; */
+  width: 50%;
   margin: 20px auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(50px, 1fr));
   grid-template-areas:
     "display display display display"
     "plus minus times divide"
@@ -17,5 +17,18 @@
     "four five six equal"
     "one two three equal"
     "zero dot ac equal";
-  gap: 10px;
+  gap: 5px;
+}
+
+.container > * {
+  padding: 20px;
+  font-size: 20px;
+}
+
+.display {
+  grid-area: display;
+}
+
+.equal {
+  grid-area: equal;
 }
