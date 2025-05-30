@@ -19,7 +19,7 @@ for (let i = 0; i < buttons.length; i++) {
           addValue(val);
         } else {
           clear();
-          display.value = "0";
+          addValue(val);
         }
         return;
       }
@@ -35,7 +35,7 @@ for (let i = 0; i < buttons.length; i++) {
 
     if (val == "AC") {
       clear();
-      addValue(0);
+      addValue("0");
     }
   });
 }
