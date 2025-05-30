@@ -1,3 +1,5 @@
 const display = document.querySelector(".display");
 
-console.log(display);
+const buttons = document.querySelectorAll("button");
+
+console.log(buttons);
