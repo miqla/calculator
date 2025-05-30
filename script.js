@@ -13,11 +13,7 @@ for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", function () {
     let val = buttons[i].innerHTML;
 
-    // if (val == "x") {
-    //   val = "*";
-    // }
-
-    if (val !== "=" && val !== "AC") {
+    if (val !== "=" && val !== "AC" && val !== "0") {
       if (display.value === "0") {
         clear();
       }
@@ -25,7 +21,8 @@ for (let i = 0; i < buttons.length; i++) {
     }
 
     if (val == "=") {
-      let result = eval(display.value);
+      let convert = display.value.replaceAll("x", "*").replaceAll("÷", "/");
+      let result = eval(convert);
       clear();
       addValue(result);
     }
