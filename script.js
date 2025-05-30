@@ -12,9 +12,11 @@ function clear() {
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", function () {
     let val = buttons[i].innerHTML;
+    let string = display.value;
 
     if (val !== "=" && "AC") {
-      if (display.value === "0") {
+      // able to add zero as prefix
+      if (string === "0") {
         if (val === ".") {
           addValue(val);
         } else {
@@ -23,11 +25,12 @@ for (let i = 0; i < buttons.length; i++) {
         }
         return;
       }
+
       addValue(val);
     }
 
     if (val == "=") {
-      let convert = display.value.replaceAll("x", "*").replaceAll("÷", "/");
+      let convert = string.replaceAll("x", "*").replaceAll("÷", "/");
       let result = eval(convert);
       clear();
       addValue(result);
