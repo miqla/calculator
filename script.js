@@ -69,7 +69,6 @@ for (let i = 0; i < buttons.length; i++) {
         arr.forEach((e) => {
           let last = e.charAt(e.length - 1);
           parseInt(e);
-          console.log(e);
           if (last === ".") {
             return;
           }
