@@ -67,16 +67,11 @@ for (let i = 0; i < buttons.length; i++) {
         const result3 = result2.flatMap((item) => item.split("x"));
         const arr = result3.flatMap((item) => item.split("÷"));
         arr.forEach((e) => {
-          let last = e.charAt(e.length - 1);
+          let dec = e.indexOf(".");
           parseInt(e);
-          if (last === ".") {
-            return;
-          }
-          if (e % 1 != 0) {
-            return;
-          } else {
+          if (dec == -1) {
+            console.log("ok");
             addValue(val);
-            return;
           }
         });
         return;
