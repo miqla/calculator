@@ -51,6 +51,10 @@ for (let i = 0; i < buttons.length; i++) {
           clear();
           addValue(change);
           return;
+        }
+        if (val === ".") {
+          addValue("0" + val);
+          return;
         } else {
           addValue(val);
           return;
