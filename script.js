@@ -61,6 +61,27 @@ for (let i = 0; i < buttons.length; i++) {
         }
       }
 
+      if (val === ".") {
+        const result1 = string.split("+");
+        const result2 = result1.flatMap((item) => item.split("-"));
+        const result3 = result2.flatMap((item) => item.split("x"));
+        const arr = result3.flatMap((item) => item.split("÷"));
+        arr.forEach((e) => {
+          let last = e.charAt(e.length - 1);
+          parseInt(e);
+          console.log(e);
+          if (last === ".") {
+            return;
+          }
+          if (e % 1 != 0) {
+            return;
+          } else {
+            addValue(val);
+            return;
+          }
+        });
+        return;
+      }
       addValue(val);
     }
 
