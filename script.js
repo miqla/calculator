@@ -40,15 +40,6 @@ for (let i = 0; i < buttons.length; i++) {
         return;
       }
 
-      // if (lastChar() === "+") {
-      //   if (val !== "+") {
-      //     addValue(val);
-      //     return;
-      //   } else {
-      //     return;
-      //   }
-      // }
-
       if (
         lastChar() === "+" ||
         lastChar() === "-" ||
@@ -56,6 +47,9 @@ for (let i = 0; i < buttons.length; i++) {
         lastChar() === "÷"
       ) {
         if (val === "x" || val === "+" || val === "-" || val === "÷") {
+          let change = string.replace(/.$/, val);
+          clear();
+          addValue(change);
           return;
         } else {
           addValue(val);
@@ -64,8 +58,6 @@ for (let i = 0; i < buttons.length; i++) {
       }
 
       addValue(val);
-
-      console.log(lastChar());
     }
 
     if (val === "=") {
