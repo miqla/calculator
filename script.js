@@ -9,14 +9,28 @@ function clear() {
   display.value = "";
 }
 
+function lastChar() {
+  let str = display.value;
+  let last = str.charAt(str.length - 1);
+  return last;
+}
+
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", function () {
     let val = buttons[i].innerHTML;
     let string = display.value;
 
     if (val !== "=" && "AC") {
-      // able to add zero as prefix
       if (string === "0") {
+        if (
+          val === "x" ||
+          val === "+" ||
+          val === "-" ||
+          val === "÷" ||
+          val === "AC"
+        ) {
+          return;
+        }
         if (val === ".") {
           addValue(val);
         } else {
@@ -26,17 +40,28 @@ for (let i = 0; i < buttons.length; i++) {
         return;
       }
 
+      if (lastChar() === "+") {
+        if (val !== "+") {
+          addValue(val);
+          return;
+        } else {
+          return;
+        }
+      }
+
       addValue(val);
+
+      console.log(lastChar());
     }
 
-    if (val == "=") {
+    if (val === "=") {
       let convert = string.replaceAll("x", "*").replaceAll("÷", "/");
       let result = eval(convert);
       clear();
       addValue(result);
     }
 
-    if (val == "AC") {
+    if (val === "AC") {
       clear();
       addValue("0");
     }
