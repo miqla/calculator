@@ -67,10 +67,8 @@ for (let i = 0; i < buttons.length; i++) {
         const result3 = result2.flatMap((item) => item.split("x"));
         const arr = result3.flatMap((item) => item.split("÷"));
         arr.forEach((e) => {
-          let dec = e.indexOf(".");
-          parseInt(e);
-          if (dec == -1) {
-            console.log("ok");
+          let decimal = e.indexOf(".");
+          if (decimal == -1) {
             addValue(val);
           }
         });
@@ -80,10 +78,23 @@ for (let i = 0; i < buttons.length; i++) {
     }
 
     if (val === "=") {
-      let convert = string.replaceAll("x", "*").replaceAll("÷", "/");
-      let result = eval(convert);
-      clear();
-      addValue(result);
+      if (
+        lastChar() === "+" ||
+        lastChar() === "-" ||
+        lastChar() === "x" ||
+        lastChar() === "÷"
+      ) {
+        return;
+      }
+      try {
+        let convert = string.replaceAll("x", "*").replaceAll("÷", "/");
+        let result = eval(convert);
+        clear();
+        addValue(result);
+      } catch (error) {
+        clear();
+        addValue("error!");
+      }
     }
 
     if (val === "AC") {
