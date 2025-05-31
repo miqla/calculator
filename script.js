@@ -20,7 +20,7 @@ for (let i = 0; i < buttons.length; i++) {
     let val = buttons[i].innerHTML;
     let string = display.value;
 
-    if (val !== "=" && "AC") {
+    if (val !== "=" && val !== "AC") {
       if (string === "0") {
         if (
           val === "x" ||
@@ -40,11 +40,25 @@ for (let i = 0; i < buttons.length; i++) {
         return;
       }
 
-      if (lastChar() === "+") {
-        if (val !== "+") {
-          addValue(val);
+      // if (lastChar() === "+") {
+      //   if (val !== "+") {
+      //     addValue(val);
+      //     return;
+      //   } else {
+      //     return;
+      //   }
+      // }
+
+      if (
+        lastChar() === "+" ||
+        lastChar() === "-" ||
+        lastChar() === "x" ||
+        lastChar() === "÷"
+      ) {
+        if (val === "x" || val === "+" || val === "-" || val === "÷") {
           return;
         } else {
+          addValue(val);
           return;
         }
       }
