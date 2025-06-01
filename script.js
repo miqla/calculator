@@ -1,8 +1,17 @@
 const display = document.querySelector(".display");
+const preview = document.querySelector(".preview");
 const buttons = document.querySelectorAll("button");
 
 function addValue(val) {
   display.value += val;
+}
+
+function addPreview(val) {
+  preview.value += val;
+}
+
+function clearPreview() {
+  preview.value = "";
 }
 
 function clear() {
@@ -91,6 +100,8 @@ for (let i = 0; i < buttons.length; i++) {
         let result = eval(convert);
         clear();
         addValue(result);
+        clearPreview();
+        addPreview(string + "=");
       } catch (error) {
         clear();
         addValue("error!");
@@ -99,6 +110,7 @@ for (let i = 0; i < buttons.length; i++) {
 
     if (val === "AC") {
       clear();
+      clearPreview();
       addValue("0");
     }
   });

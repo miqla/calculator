@@ -24,10 +24,26 @@ body {
   border: 1px solid #5e5e5e;
 }
 
-.display {
+.box {
   grid-column: 1 / -1;
-  text-align: right;
   border-radius: 10px 10px 0 0;
+  padding: 0;
+}
+
+input {
+  display: block;
+  text-align: right;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  font-size: inherit;
+  background-color: white;
+}
+
+input:first-child {
+  border-radius: 10px 10px 0 0;
+  padding-bottom: 0;
+  font-size: 0.7em;
 }
 
 button {
