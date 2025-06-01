@@ -102,6 +102,7 @@ for (let i = 0; i < buttons.length; i++) {
         addValue(result);
         clearPreview();
         addPreview(string + "=");
+        return;
       } catch (error) {
         clear();
         addValue("error!");
