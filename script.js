@@ -1,6 +1,8 @@
 const display = document.querySelector(".display");
 const preview = document.querySelector(".preview");
 const buttons = document.querySelectorAll("button");
+const resultPreview = document.querySelector(".resultPreview");
+const resultDisplay = document.querySelector(".resultDisplay");
 
 function addValue(val) {
   display.value += val;
@@ -102,6 +104,7 @@ for (let i = 0; i < buttons.length; i++) {
         addValue(result);
         clearPreview();
         addPreview(string + "=");
+        addHistory(string + "=", result);
         return;
       } catch (error) {
         clear();
@@ -115,4 +118,23 @@ for (let i = 0; i < buttons.length; i++) {
       addValue("0");
     }
   });
+}
+
+// history
+function addHistory(prev, res) {
+  const historyContainer = document.querySelector(".historyContainer");
+
+  const rPreview = document.createElement("p");
+  rPreview.classList.add("resultPreview");
+  rPreview.innerText = prev;
+
+  const rDisplay = document.createElement("p");
+  rDisplay.classList.add("resultDisplay");
+  rDisplay.innerText = res;
+
+  const result = document.createElement("div");
+  result.classList.add("result");
+  result.append(rPreview, rDisplay);
+
+  historyContainer.append(result);
 }

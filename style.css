@@ -89,9 +89,13 @@ button:active {
   top: 0;
   background-color: rgb(255, 255, 255);
   width: 100%;
+  text-align: center;
 }
 .historyContainer {
   padding: 10px;
+  text-align: right;
+  display: flex;
+  flex-direction: column-reverse;
 }
 .result {
   margin-bottom: 10px;
