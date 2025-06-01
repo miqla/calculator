@@ -13,11 +13,14 @@ body {
 
 .container {
   width: 50%;
-  max-width: 1000px;
+  max-width: 1100px;
   min-width: 250px;
   max-height: 80%;
   display: grid;
-  grid-template: repeat(6, minmax(40px, 1fr)) / repeat(4, minmax(40px, 1fr)) 2fr;
+  grid-template: repeat(6, minmax(40px, 1fr)) / repeat(4, minmax(40px, 1fr)) minmax(
+      80px,
+      2fr
+    );
   gap: 2px;
   border: 1px solid bla;
 }
@@ -80,7 +83,7 @@ button:active {
   overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
-  max-width: 200px;
+  max-width: 300px;
   padding: 0;
 }
 
@@ -111,9 +114,14 @@ button:active {
   color: #474747;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .container {
-    /* grid-template-rows: repeat(6, minmax(40px, 1fr)); */
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
     grid-template-columns: repeat(4, minmax(40px, 1fr));
     max-height: 70%;
     width: 90%;
