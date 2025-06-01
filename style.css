@@ -13,9 +13,11 @@ body {
 
 .container {
   width: 50%;
+  max-height: 80%;
   display: grid;
-  grid-template: repeat(6, minmax(40px, 1fr)) / repeat(5, minmax(40px, 1fr));
+  grid-template: repeat(6, minmax(40px, 1fr)) / repeat(4, minmax(40px, 1fr)) 2fr;
   gap: 2px;
+  border: 1px solid bla;
 }
 
 .container > * {
@@ -26,7 +28,6 @@ body {
 
 .box {
   grid-column: 1 / -2;
-  /* border-radius: 10px 10px 0 0; */
   border-top-left-radius: 10px;
   padding: 0;
 }
@@ -45,6 +46,7 @@ input:first-child {
   border-radius: 10px 10px 0 0;
   padding-bottom: 0;
   font-size: 0.7em;
+  color: #9c9c9c;
 }
 
 button {
@@ -62,7 +64,6 @@ button:active {
 .equal {
   grid-column: -3 / -2;
   grid-row: 3 / -1;
-  /* border-bottom-right-radius: 10px; */
 }
 
 .zero {
@@ -73,12 +74,59 @@ button:active {
   grid-column: -2 / -1;
   grid-row: 1 / -1;
   border-radius: 0 10px 10px 0;
+  overflow-wrap: break-word;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  max-width: 200px;
+  padding: 0;
+}
+
+.judul {
+  font-size: 15px;
   padding: 10px;
+  position: sticky;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+}
+.historyContainer {
+  padding: 10px;
+}
+.result {
+  margin-bottom: 10px;
+}
+.history .resultPreview {
+  font-size: 0.7em;
+  color: #9c9c9c;
+}
+.history .resultDisplay {
+  font-size: 0.85em;
+  color: #474747;
 }
 
 @media screen and (max-width: 700px) {
+  .container {
+    /* grid-template-rows: repeat(6, minmax(40px, 1fr)); */
+    grid-template-columns: repeat(4, minmax(40px, 1fr));
+    max-height: 70%;
+  }
+  .container .box {
+    grid-column: 1 / -1;
+    border-radius: 10px 10px 0 0;
+    padding: 0;
+  }
+  .equal {
+    grid-column: -2 / -1;
+    grid-row: 3 / -1;
+    border-bottom-right-radius: 10px;
+  }
   .container > * {
     padding: 15px;
+    font-size: 18px;
+  }
+  .history {
+    display: none;
   }
 }
 
@@ -86,5 +134,8 @@ button:active {
   .container > * {
     padding: 10px;
     font-size: 15px;
+  }
+  .container .box {
+    padding: 0;
   }
 }
