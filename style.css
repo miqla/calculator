@@ -13,6 +13,8 @@ body {
 
 .container {
   width: 50%;
+  max-width: 1000px;
+  min-width: 250px;
   max-height: 80%;
   display: grid;
   grid-template: repeat(6, minmax(40px, 1fr)) / repeat(4, minmax(40px, 1fr)) 2fr;
@@ -109,11 +111,12 @@ button:active {
   color: #474747;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .container {
     /* grid-template-rows: repeat(6, minmax(40px, 1fr)); */
     grid-template-columns: repeat(4, minmax(40px, 1fr));
     max-height: 70%;
+    width: 90%;
   }
   .container .box {
     grid-column: 1 / -1;
@@ -135,6 +138,9 @@ button:active {
 }
 
 @media screen and (max-width: 550px) {
+  .container {
+    width: 95%;
+  }
   .container > * {
     padding: 10px;
     font-size: 15px;
