@@ -72,6 +72,20 @@ for (let i = 0; i < buttons.length; i++) {
         }
       }
 
+      if (val === "0") {
+        const result1 = string.split("+");
+        const result2 = result1.flatMap((item) => item.split("-"));
+        const result3 = result2.flatMap((item) => item.split("x"));
+        const arr = result3.flatMap((item) => item.split("÷"));
+        parseInt(arr);
+        arr.forEach((e) => {
+          if (e == 0) {
+            return;
+          }
+        });
+        return;
+      }
+
       if (val === ".") {
         const result1 = string.split("+");
         const result2 = result1.flatMap((item) => item.split("-"));
